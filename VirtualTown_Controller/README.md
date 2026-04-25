@@ -48,12 +48,14 @@ your remote's real codes:
    the top of `VirtualTown_Controller.ino`.
 4. Re-upload.
 
-## 硬件小白？请先看这两个文件
+## 硬件小白？请先看这三个文件
 
 - [`HARDWARE_GUIDE.md`](./HARDWARE_GUIDE.md) — 零基础接线 + bring-up 测试流程，
   包含 MOSFET 驱动电机、共地、续流二极管等关键安全说明。
-- [`tests/`](./tests/) — 10 个独立测试 sketch，**按顺序**逐个验证 LCD、LED、
-  蜂鸣器、IR、风扇、水泵，全部通过后再烧主程序。
+- [`VIRTUAL_SIGNAL_GUIDE.md`](./VIRTUAL_SIGNAL_GUIDE.md) — **队友的发射器还没就绪**
+  时，怎么用电脑键盘当"假发射器"先把整个 pipeline 跑通（强烈推荐先做这一步）。
+- [`tests/`](./tests/) — 12 个独立测试 sketch，**按顺序**逐个验证 LCD、LED、
+  蜂鸣器、IR、风扇、水泵和虚拟信号，全部通过后再烧主程序。
 
 ## Design Notes
 

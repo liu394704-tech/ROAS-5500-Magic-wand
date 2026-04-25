@@ -15,6 +15,8 @@ until every step here passes.
 | 8 | `08_hall_drv5055`| (optional) DRV5055A1 linear Hall sensor reads on A0 |
 | 9 | `09_hx712_read`  | (optional) HX712 24-bit ADC streams raw counts |
 | 10| `10_ne555_pulse_count` | (optional) Arduino counts a 555 astable's frequency |
+| 11| `11_ir_react_basic` | **Wand -> LED + buzzer reaction**, the safest end-to-end HCI smoke test before adding LCD / fan / pump |
+| 12| `12_virtual_signal_pipeline` | **No IR hardware needed** - type 1/2/3/0/p in Serial Monitor to fire the same state transitions. Use this to validate the pipeline before the teammate's transmitter codes are known. See `../VIRTUAL_SIGNAL_GUIDE.md`. |
 
 Detailed wiring + safety instructions live in
 [`../HARDWARE_GUIDE.md`](../HARDWARE_GUIDE.md).

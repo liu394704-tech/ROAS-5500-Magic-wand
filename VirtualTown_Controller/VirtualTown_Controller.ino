@@ -154,6 +154,33 @@ void setup() {
   IrReceiver.begin(PIN_IR_RECV, ENABLE_LED_FEEDBACK);
   Serial.print(F("[VirtualTown] IR ready on pin "));
   Serial.println(PIN_IR_RECV);
+
+  // Virtual wand: type 1/2/3/0/p in Serial Monitor to fire the same states
+  // the real IR remote would. Lets you verify the full pipeline before the
+  // teammate's transmitter codes are known, and acts as a backup during demo.
+  Serial.println(F("[VirtualWand] Type 1/2/3/0/p + Enter in Serial Monitor"));
+  Serial.println(F("              1=Morning  2=Nature  3=Festival  0/p=Night"));
+}
+
+// Translate one keyboard character from the Serial Monitor into the same
+// state-entry call a real IR button would trigger.
+void handleVirtualWandChar(char c) {
+  switch (c) {
+    case '1': Serial.println(F("[VirtualWand] -> 1")); enterMorning();  break;
+    case '2': Serial.println(F("[VirtualWand] -> 2")); enterNature();   break;
+    case '3': Serial.println(F("[VirtualWand] -> 3")); enterFestival(); break;
+    case '0': Serial.println(F("[VirtualWand] -> 0")); enterNight();    break;
+    case 'p':
+    case 'P': Serial.println(F("[VirtualWand] -> POWER")); enterNight(); break;
+    case '\r':
+    case '\n':
+    case ' ':                                                            break;
+    default:
+      Serial.print(F("[VirtualWand] unknown key '"));
+      Serial.print(c);
+      Serial.println(F("' (use 1/2/3/0/p)"));
+      break;
+  }
 }
 
 /* ========================================================================== */
@@ -186,6 +213,11 @@ void loop() {
     }
 
     IrReceiver.resume();   // ready for the next wand pulse
+  }
+
+  /* ---- 1b. Virtual wand: keyboard fallback over Serial ------------------ */
+  while (Serial.available() > 0) {
+    handleVirtualWandChar((char)Serial.read());
   }
 
   /* ---- 2. Service the morning chime (non-blocking) ---------------------- */
