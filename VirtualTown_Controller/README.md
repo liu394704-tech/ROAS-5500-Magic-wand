@@ -48,8 +48,9 @@ your remote's real codes:
    the top of `VirtualTown_Controller.ino`.
 4. Re-upload.
 
-## 硬件小白？请先看这三个文件
+## 硬件小白？请先看这四个文件
 
+- [`PIN_MAP.md`](./PIN_MAP.md) — **每个元件接到哪一针 / 在哪个状态会响应 / 注意事项** 的总速查表，**接线时拿这份对照**。
 - [`HARDWARE_GUIDE.md`](./HARDWARE_GUIDE.md) — 零基础接线 + bring-up 测试流程，
   包含 MOSFET 驱动电机、共地、续流二极管等关键安全说明。
 - [`VIRTUAL_SIGNAL_GUIDE.md`](./VIRTUAL_SIGNAL_GUIDE.md) — **队友的发射器还没就绪**
