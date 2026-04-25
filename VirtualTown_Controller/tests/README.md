@@ -18,6 +18,7 @@ until every step here passes.
 | 11| `11_ir_react_basic` | **Wand -> LED + buzzer reaction**, the safest end-to-end HCI smoke test before adding LCD / fan / pump |
 | 12| `12_virtual_signal_pipeline` | **No IR hardware needed** - type 1/2/3/0/p in Serial Monitor to fire the same state transitions. Use this to validate the pipeline before the teammate's transmitter codes are known. See `../VIRTUAL_SIGNAL_GUIDE.md`. |
 | 13| `13_led_modules_check` | **All-LED bench setup**: walks HW-500 (D5), HW-477 (D6), HW-489 (D7), HW-481 (D8) one at a time so you can confirm every module is wired correctly before running `VirtualTown_Controller_AllLED`. |
+| 14| `14_blink_all_no_serial` | Diagnostic: on-board LED 13 blinks as a heartbeat, D5/D6/D7/D8 all turn ON together for 5 s and OFF together for 5 s. **No Serial Monitor needed** - use this to tell whether the upload actually worked and which modules are mis-wired. |
 
 Detailed wiring + safety instructions live in
 [`../HARDWARE_GUIDE.md`](../HARDWARE_GUIDE.md).
