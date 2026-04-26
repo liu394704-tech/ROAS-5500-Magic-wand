@@ -19,6 +19,8 @@ until every step here passes.
 | 12| `12_virtual_signal_pipeline` | **No IR hardware needed** - type 1/2/3/0/p in Serial Monitor to fire the same state transitions. Use this to validate the pipeline before the teammate's transmitter codes are known. See `../VIRTUAL_SIGNAL_GUIDE.md`. |
 | 13| `13_led_modules_check` | **All-LED bench setup**: walks HW-500 (D5), HW-477 (D6), HW-489 (D7), HW-481 (D8) one at a time so you can confirm every module is wired correctly before running `VirtualTown_Controller_AllLED`. |
 | 14| `14_blink_all_no_serial` | Diagnostic: on-board LED 13 blinks as a heartbeat, D5/D6/D7/D8 all turn ON together for 5 s and OFF together for 5 s. **No Serial Monitor needed** - use this to tell whether the upload actually worked and which modules are mis-wired. |
+| 15| `15_ir_receiver_only` | **Receiver-only diagnostic.** No IrSender at all, so it never suffers the Mega Timer2 send-vs-receive conflict. Use this with any real remote to prove the VS1838B is alive. |
+| 16| `16_ir_loopback_fixed` | Same-board send + receive that actually works on Mega: emitter on D9 (Mega's OC2B), and `IrReceiver.begin()` is called again after every send to re-arm the timer the way `IrReceiver.start()` does NOT. |
 
 Detailed wiring + safety instructions live in
 [`../HARDWARE_GUIDE.md`](../HARDWARE_GUIDE.md).
